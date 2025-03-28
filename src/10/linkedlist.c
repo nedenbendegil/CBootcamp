@@ -35,7 +35,14 @@ void printLinkedlist(linkedlist_t* list) {
 }
 
 void freeLinkedlist(linkedlist_t* list) {
+    if(list == NULL){
+        return;
+    }
     node_t curr = list->head;
+    if(curr == NULL) {
+        free(list);
+        return;
+    }
     node_t nextNode = NULL;
     while(curr != NULL) {
         nextNode = curr->next
